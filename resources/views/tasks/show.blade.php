@@ -8,8 +8,10 @@
 
     {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id]) !!}
     
-    {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
-        {!! Form::submit('削除') !!}
-    {!! Form::close() !!}
+    @if (Auth::user()->id == $task->user_id)
+        {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
+            {!! Form::submit('削除') !!}
+        {!! Form::close() !!}
+    @endif
 
 @endsection

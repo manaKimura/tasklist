@@ -10,6 +10,7 @@
                 <li>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!} : {{ $task->status }} > {{ $task->content }}</li>
             @endforeach
         </ul>
+        <p>{!! link_to_route('logout.get', 'Logout') !!}</p>
     @endif
 
 @endsection
